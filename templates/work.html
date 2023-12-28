@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+
+    <form method="post" action="{% url 'todo' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Todo</button>
+    </form>
+
+    <h1>Todo List</h1>
+    <ul>
+        {% for obj in data_list %}
+        <ul>
+            <li> Id: {{obj.id}} - {{obj.title}}</li>
+            <li> {{obj.des}}</li>
+            <hr>
+        </ul>
+       
+           
+        {% endfor %}
+    </ul>
+</body>
+</html>
